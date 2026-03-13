@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // 🔧 CHANGE THIS to match your GitHub repository name exactly
 // e.g. if your repo is github.com/petercwilson/career-pwa → '/career-pwa/'
-const REPO_NAME = '/career-pwa/'
+const REPO_NAME = '/career-tracker/'
 
 export default defineConfig({
   base: REPO_NAME,
