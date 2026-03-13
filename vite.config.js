@@ -2,7 +2,12 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// 🔧 CHANGE THIS to match your GitHub repository name exactly
+// e.g. if your repo is github.com/petercwilson/career-pwa → '/career-pwa/'
+const REPO_NAME = '/career-pwa/'
+
 export default defineConfig({
+  base: REPO_NAME,
   plugins: [
     react(),
     VitePWA({
@@ -16,8 +21,8 @@ export default defineConfig({
         background_color: '#0f172a',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: REPO_NAME,
+        start_url: REPO_NAME,
         icons: [
           { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
           { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
@@ -30,7 +35,10 @@ export default defineConfig({
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
             handler: 'CacheFirst',
-            options: { cacheName: 'google-fonts-cache', expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 } }
+            options: {
+              cacheName: 'google-fonts-cache',
+              expiration: { maxEntries: 10, maxAgeSeconds: 60 * 60 * 24 * 365 }
+            }
           }
         ]
       }
